@@ -1,0 +1,22 @@
+<head>
+<script src="bin64.js"></script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<span>BITS :</span>
+<button onclick="update('bits', -1)">-</button>
+<input id="bits" value=8 autocomplete=off>
+<button onclick="update('bits', 1)">+</button><br>
+
+<span>BYTES:</span>
+<button onclick="update('bytes', -1)">-</button>
+<input id="bytes" value=8 autocomplete=off>
+<button onclick="update('bytes', 1)">+</button><br><br>
+
+<table id="t"></table><br>
+
+<button onclick="b64()">Base64</button>
+<span id="b64"></span>
+
+</body>

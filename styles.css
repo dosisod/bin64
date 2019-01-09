@@ -1,0 +1,20 @@
+* {
+	font-family: monospace, monospace;
+	border: 0;
+	text-decoration: none;
+	color: white;
+}
+html, body {
+	background: purple;
+	margin: 0;
+	padding: 10px 0px 0px 10px;
+}
+button, input, #t {
+	color: white;
+	background: purple;
+	border: 1px solid white;
+}
+input {
+	text-align: center;
+	width: 3em;
+}
