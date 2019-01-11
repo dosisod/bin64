@@ -6,9 +6,9 @@ function reload() {
 	for(i=0;i<document.getElementById("bytes").value;i++) {
 		tr=document.createElement("tr")
 		tr.id="r"+i
-		index=document.createElement("td")
+		index=document.createElement("th")
 		index.id="c0"
-		index.innerHTMl="hi"
+		index.innerHTML=i+":"
 		tr.appendChild(index)
 		for (j=1;j<=document.getElementById("bits").value;j++) { //start at 1, 0 stores index
 			td=document.createElement("td")
@@ -28,6 +28,7 @@ function update(id, num) { //pass element id and amount to change it by
 	reload()
 }
 
-function b64() { //base64 the "raw" bits
-	//
+function b64(s) { //base64 the "raw" bits
+	//do stuff
+	document.getElementById("b64").innerHTML=btoa(s)
 }
