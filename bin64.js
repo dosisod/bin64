@@ -1,20 +1,26 @@
-window.onload=()=>reload()
+window.onload=()=>load()
+
+function load() {
+	bytes=document.getElementById("bytes")
+	bytes=document.getElementById("bits")
+	table=document.getElementById("t")
+	reload()
+}
 
 function reload() {
-	table=document.getElementById("t")
 	table.innerHTML="" //clears the table
-	for(i=0;i<document.getElementById("bytes").value;i++) {
+	for(i=0;i<bytes.value;i++) {
 		tr=document.createElement("tr")
 		tr.id="r"+i
 		index=document.createElement("th")
 		index.id="c0"
 		index.innerHTML=i+":"
 		tr.appendChild(index)
-		for (j=1;j<=document.getElementById("bits").value;j++) { //start at 1, 0 stores index
+		for (j=1;j<=bits.value;j++) { //start at 1, 0 stores index
 			td=document.createElement("td")
 			ck=document.createElement("input")
 			ck.type="checkbox"
-			ck.id="c"+j
+			ck.id="r"+i+"c"+(j-1)
 			td.appendChild(ck)
 			tr.appendChild(td)
 		}
@@ -28,7 +34,13 @@ function update(id, num) { //pass element id and amount to change it by
 	reload()
 }
 
-function b64(s) { //base64 the "raw" bits
-	//do stuff
-	document.getElementById("b64").innerHTML=btoa(s)
+function b64() { //base64 the "raw" bits
+	total=0 //adds bits to this
+	for (i=0;i<bytes.value;i++) {
+		for (j=0;j<bits.value;j++) {
+			total+=document.getElementById("r"+i+"c"+j).checked<<(i*j)+j
+		}
+	}
+	console.log(total)
+	document.getElementById("b64").innerHTML=btoa(total)
 }
